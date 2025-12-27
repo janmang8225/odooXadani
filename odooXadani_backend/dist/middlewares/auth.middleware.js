@@ -16,7 +16,6 @@ export function authenticate(req, _res, next) {
             userId: payload.sub,
             role: payload.role
         };
-        console.log("f " + payload.sub + " f: " + payload.role);
         req.auth = auth;
         next();
     }

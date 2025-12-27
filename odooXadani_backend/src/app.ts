@@ -1,7 +1,7 @@
 import express from 'express';
 import { errorMiddleware } from './middlewares/error.middleware.js';
 import { authenticate } from './middlewares/auth.middleware.js';
-
+import cors  from "cors"
 import * as Auth from './modules/auth/auth.controller.js';
 import * as Users from './modules/users/users.controller.js';
 import * as Teams from './modules/team/teams.controller.js';
@@ -10,6 +10,10 @@ import * as Requests from './modules/requests/requests.controller.js';
 import * as Polling from './modules/polling/polling.controller.js';
 
 export const app = express();
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true,
+  }));
 app.use(express.json());
 
 // routes
